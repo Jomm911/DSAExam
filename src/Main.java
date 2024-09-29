@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class Main {
 
     static Scanner sc = new Scanner(System.in);
+    static BinaryTree bt = new BinaryTree();
     public static void main(String[] args) {
 
         boolean run = true;
@@ -41,15 +42,21 @@ public class Main {
         }
     }
     private static void inorder(){
-
+    bt.inorder();
     }
 
     private static void postorder() {
+        bt.postorder();
     }
 
     private static void preorder() {
+        bt.preorder();
     }
 
     private static void insert() {
+        System.out.print("Enter the number to insert : ");
+        int number = sc.nextInt();
+        bt.insert(number);
+        System.out.println("Inserted number " + number + " into Binary Tree ");
     }
 }

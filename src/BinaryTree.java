@@ -30,46 +30,42 @@ public class BinaryTree {
         return root;
     }
 
-    public void display() {
-        System.out.println("Parents: ");
-        displayParents(root);
-        System.out.println("\nLeaves: ");
-        displayLeaves(root);
-        System.out.println("\nChildren: ");
-        displayChildren(root);
+    public void preorder() {
+        preorderRec(root);
+        System.out.println();
     }
 
-    private void displayParents(Node node) {
+    private void preorderRec(Node node) {
         if (node != null) {
-            if (node.left != null || node.right != null) {
-                System.out.print(node.data + " ");
-            }
-            displayParents(node.left);
-            displayParents(node.right);
-
+            System.out.print(node.data + " ");
+            preorderRec(node.left);
+            preorderRec(node.right);
         }
     }
 
-    private void displayLeaves(Node node) {
+    public void inorder() {
+        inorderRec(root);
+        System.out.println();
+    }
+
+    private void inorderRec(Node node) {
         if (node != null) {
-            if (node.left == null && node.right == null) {
-                System.out.print(node.data + " ");
-            }
-            displayLeaves(node.left);
-            displayLeaves(node.right);
+            inorderRec(node.left);
+            System.out.print(node.data + " ");
+            inorderRec(node.right);
         }
     }
 
-    private void displayChildren(Node node) {
+    public void postorder() {
+        postorderRec(root);
+        System.out.println();
+    }
+
+    private void postorderRec(Node node) {
         if (node != null) {
-            if (node.left != null) {
-                System.out.println(node.data + " -> " + node.left.data);
-            }
-            if (node.right != null) {
-                System.out.println(node.data + " -> " + node.right.data);
-            }
-            displayChildren(node.left);
-            displayChildren(node.right);
+            postorderRec(node.left);
+            postorderRec(node.right);
+            System.out.print(node.data + " ");
         }
     }
 }
